@@ -1,0 +1,39 @@
+/* structure */
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 4px;
+}
+.display {
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 36px;
+}
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+button {
+  width: 36px;
+  height: 48px;
+}
+.numbers {
+  display: flex;
+}
+/* style */
+/* color  */
+.display {
+  background-color: rgb(179, 210, 237);
+}
