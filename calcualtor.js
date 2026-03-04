@@ -130,7 +130,17 @@ function applyOperate(a) {
   }
   if (count1 == 1) {
     number1 = operate(number1, operator, number2);
-
+    if (number1.toString() === "Infinity") {
+      display.textContent = "Math ERRoR";
+      num1 = [];
+      number1 = answer;
+      num2 = [];
+      number2 = 0;
+      count = 0;
+      count1 = 0;
+      countForPoint = 0;
+      return;
+    }
     if (number1.toString().length > 10) {
       number1 = number1.toFixed(10);
     }
@@ -175,7 +185,16 @@ let answer;
 const equal = document.querySelector(".equal");
 equal.addEventListener("click", () => {
   if (count == 0 || count1 == 0) {
-    display.textContent = "FAAAAAaaak";
+    display.textContent = "FAAAAAaaak!";
+    num1 = [];
+    number1 = 0;
+    count = 0;
+    count1 = 0;
+    countForPoint = 0;
+    return;
+  }
+  if (operator == "/" && number2 == 0) {
+    display.textContent = "Divided by 0 dear";
     num1 = [];
     number1 = answer;
     num2 = [];
@@ -183,9 +202,6 @@ equal.addEventListener("click", () => {
     count = 0;
     count1 = 0;
     countForPoint = 0;
-  }
-  if (operator == "/" && number2 == 0) {
-    display.textContent = "Divided by zero dear";
   } else {
     answer = operate(number1, operator, number2);
     if (answer.toString().length > 10) {
@@ -202,3 +218,6 @@ equal.addEventListener("click", () => {
     return answer;
   }
 });
+
+const del = document.querySelector(".delete");
+del.addEventListener("click", () => {});

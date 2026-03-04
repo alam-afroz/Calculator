@@ -5,35 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="screen">
       <div class="calc">
         <div class="display">0</div>
-        <div class="btn">
-          <div class="numbers">
+        <div class="taskButton">
+          <button class="clear">CLR</button>
+          <button class="delete">DEL</button>
+        </div>
+        <div class="mathButton">
+          <div class="operator">
+            <button class="plus numbtn">+</button>
+            <button class="minus numbtn">-</button>
+            <button class="multiply numbtn">*</button>
+            <button class="dividebtn numbtn">/</button>
+          </div>
+          <div class="col1">
             <button class="numbtn" id="zero">0</button>
             <button class="numbtn" id="one">1</button>
             <button class="numbtn" id="two">2</button>
+
+            <button class="equal">=</button>
+          </div>
+          <div class="col2">
             <button class="numbtn" id="three">3</button>
             <button class="numbtn" id="four">4</button>
+
             <button class="numbtn" id="five">5</button>
             <button class="numbtn" id="six">6</button>
+          </div>
+          <div class="col3">
             <button class="numbtn" id="seven">7</button>
             <button class="numbtn" id="eight">8</button>
             <button class="numbtn" id="nine">9</button>
-            <button class="numbtn" id="decimal">.</button>
+            <button class="numbtn" id="decimal">&#8226;</button>
           </div>
-          <div class="operator">
-            <button class="plus">+</button>
-            <button class="minus">-</button>
-            <button class="multiply">*</button>
-            <button class="dividebtn">/</button>
-          </div>
-          <div class="equal">
-            <button>=</button>
-          </div>
-          <button class="clear">CLR</button>
         </div>
       </div>
     </div>
