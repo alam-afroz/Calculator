@@ -43,73 +43,73 @@ const eight = document.querySelector("#eight");
 const nine = document.querySelector("#nine");
 const display = document.querySelector(".display");
 const decimal = document.querySelector("#decimal");
-function f1(a) {
+function inputNumberOne(a) {
   num1.push(a);
   num1join = num1.join("");
   number1 = Number(num1join);
   display.textContent = num1join;
   return number1;
 }
-function f2(a) {
+function inputNumberTwo(a) {
   num2.push(a);
   num2join = num2.join("");
   number2 = Number(num2join);
-  display.textContent = num2join;
-  f4();
+  display.textContent = num2join
+  incrementCount1();
   return number2;
 }
-function f3(a) {
+function inputNumber(a) {
   answer = 0;
   if (count == 0) {
-    f1(a);
+    inputNumberOne(a);
   }
   if (count == 1) {
-    f2(a);
-    f4();
+    inputNumberTwo(a);
+    incrementCount1();
   }
 }
 let count = 0;
 let count1 = 0;
-function f4() {
+function incrementCount1() {
   count1 = 1;
   return count1;
 }
 one.addEventListener("click", () => {
-  f3(1);
+  inputNumber(1);
 });
 let countForPoint = 0;
 decimal.addEventListener("click", () => {
   if (countForPoint == 0) {
-    f3(".");
+    inputNumber(".");
     countForPoint = 1;
   }
 });
 zero.addEventListener("click", () => {
-  f3(0);
+  inputNumber(0);
 });
 two.addEventListener("click", () => {
-  f3(2);
+  inputNumber(2);
 });
 three.addEventListener("click", () => {
-  f3(3);
+  inputNumber(3);
 });
 four.addEventListener("click", () => {
-  f3(4);
+  inputNumber(4);
 });
 five.addEventListener("click", () => {
-  f3(5);
+  inputNumber(5);
 });
 six.addEventListener("click", () => {
-  f3(6);
+  inputNumber(6);
 });
 seven.addEventListener("click", () => {
-  f3(7);
+  inputNumber(7);
 });
 eight.addEventListener("click", () => {
-  f3(8);
+  inputNumber(8);
 });
 nine.addEventListener("click", () => {
-  f3(9);
+  inputNumber(9);
 });
 
 const plus = document.querySelector(".plus");
@@ -156,9 +156,6 @@ plus.addEventListener("click", () => {
   applyOperate("+");
 });
 minus.addEventListener("click", () => {
-  // operator = "-";
-  // display.textContent = "-";
-  // countPlus();
   applyOperate("-");
 });
 mult.addEventListener("click", () => {
@@ -220,4 +217,56 @@ equal.addEventListener("click", () => {
 });
 
 const del = document.querySelector(".delete");
-del.addEventListener("click", () => {});
+del.addEventListener("click", () => {
+  if (count === 0) {
+    num1.pop();
+    newNum1 = num1;
+
+    num1 = [];
+
+    if (newNum1.length === 0) {
+      display.textContent = 0;
+      return;
+    } else {
+      newNum1.forEach((number) => {
+        inputNumberOne(number);
+      });
+    }
+  }
+  if (count === 1) {
+    num2.pop();
+    console.log(num2);
+    newNum2 = num2;
+    console.log(newNum2);
+
+    num2 = [];
+
+    if (newNum2.length === 0) {
+      display.textContent = operator;
+      count = 2;
+      return;
+    } else {
+      newNum2.forEach((number) => {
+        console.log(number);
+        inputNumberTwo(number);
+      });
+    }
+  }
+  if (count === 2) {
+    operator = "";
+    // display.textContent = num1.join("");
+    count = 0;
+  }
+});
+
+const body = document.querySelector("body");
+body.dataset.theme = localStorage.getItem("theme");
+function changeTheme() {
+  const selectTheme = document.getElementById("theme");
+  selectTheme.addEventListener("change", (e) => {
+    body.dataset.theme = e.target.value;
+    localStorage.setItem("theme", e.target.value);
+  });
+  selectTheme.value = localStorage.getItem("theme");
+}
+changeTheme();
