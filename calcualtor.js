@@ -218,6 +218,7 @@ equal.addEventListener("click", () => {
 
 const del = document.querySelector(".delete");
 del.addEventListener("click", () => {
+
   if (count === 0) {
     num1.pop();
     newNum1 = num1;
@@ -254,7 +255,7 @@ del.addEventListener("click", () => {
   }
   if (count === 2) {
     operator = "";
-    // display.textContent = num1.join("");
+    display.textContent = num1.join("");
     count = 0;
   }
 });
