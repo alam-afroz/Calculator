@@ -227,7 +227,6 @@ del.addEventListener("click", () => {
     newNum1.pop();
     console.log(newNum1);
     num1 = [];
-
     if (newNum1.length === 0) {
       number1 = 0;
       answer = 0;
@@ -246,12 +245,9 @@ del.addEventListener("click", () => {
     console.log(num2);
     newNum2 = num2;
     console.log(newNum2);
-
     num2 = [];
-
     if (newNum2.length === 0) {
       number2 = 0;
-
       display.textContent = operator;
       count = 2;
       return;
