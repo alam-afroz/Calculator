@@ -19,6 +19,13 @@ body {
   font-style: normal;
   color: var(--text-color);
 }
+h1 {
+  color: var(--calculator-border);
+  border-left: 3px solid var(--calculator-border);
+  border-right: 3px solid var(--calculator-border);
+  border-radius: 16px;
+  padding: 0px 8px;
+}
 .screen {
   /* height: 100vh;
   width: 100vw; */
@@ -84,9 +91,8 @@ button {
   font-size: large;
   color: var(--text-color);
 }
-button:hover{
-font-size:1.4rem;
-
+button:hover {
+  font-size: 1.4rem;
 }
 .numbtn {
   height: 44px;
