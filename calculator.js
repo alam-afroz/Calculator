@@ -43,6 +43,7 @@ const eight = document.querySelector("#eight");
 const nine = document.querySelector("#nine");
 const display = document.querySelector(".display");
 const decimal = document.querySelector("#decimal");
+
 function inputNumberOne(a) {
   num1.push(a);
   num1join = num1.join("");
@@ -50,6 +51,7 @@ function inputNumberOne(a) {
   display.textContent = num1join;
   return number1;
 }
+
 function inputNumberTwo(a) {
   num2.push(a);
   num2join = num2.join("");
@@ -58,6 +60,7 @@ function inputNumberTwo(a) {
   incrementCount1();
   return number2;
 }
+
 function inputNumber(a) {
   answer = 0;
   if (count == 0) {
@@ -68,15 +71,19 @@ function inputNumber(a) {
     incrementCount1();
   }
 }
-let count = 0;
-let count1 = 0;
+
+let count = 0; // to handle num2 input
+let count1 = 0; // to handle input after answer
+
 function incrementCount1() {
   count1 = 1;
   return count1;
 }
+
 one.addEventListener("click", () => {
   inputNumber(1);
 });
+
 let countForPoint = 0;
 decimal.addEventListener("click", () => {
   if (countForPoint == 0) {
@@ -121,6 +128,7 @@ function countPlus() {
   count = 1;
   return count;
 }
+
 function applyOperate(a) {
   if (count1 == 0) {
     operator = a;
@@ -142,7 +150,7 @@ function applyOperate(a) {
       return;
     }
     if (number1.toString().length > 10) {
-      number1 = number1.toFixed(10);
+      number1 = Number(number1.toFixed(10));
     }
     operator = a;
     countForPoint = 0;
@@ -164,6 +172,7 @@ mult.addEventListener("click", () => {
 div.addEventListener("click", () => {
   applyOperate("/");
 });
+
 const clear = document.querySelector(".clear");
 clear.addEventListener("click", () => {
   num1 = [];
@@ -201,8 +210,9 @@ equal.addEventListener("click", () => {
     countForPoint = 0;
   } else {
     answer = operate(number1, operator, number2);
+
     if (answer.toString().length > 10) {
-      answer = answer.toFixed(10);
+      answer = Number(answer.toFixed(10));
     }
     display.textContent = answer;
     num1 = [];
@@ -225,7 +235,7 @@ del.addEventListener("click", () => {
   if (count === 0) {
     newNum1 = Array.from(number1.toString());
     newNum1.pop();
-    console.log(newNum1);
+
     num1 = [];
     if (newNum1.length === 0) {
       number1 = 0;
@@ -238,13 +248,12 @@ del.addEventListener("click", () => {
         count1 = 0;
       });
     }
-    console.log(newNum1);
   }
   if (count === 1) {
     num2.pop();
-    console.log(num2);
+
     newNum2 = num2;
-    console.log(newNum2);
+
     num2 = [];
     if (newNum2.length === 0) {
       number2 = 0;
@@ -253,7 +262,6 @@ del.addEventListener("click", () => {
       return;
     } else {
       newNum2.forEach((number) => {
-        console.log(number);
         inputNumberTwo(number);
 
         count1 = 1;
@@ -279,3 +287,40 @@ function changeTheme() {
   selectTheme.value = localStorage.getItem("theme");
 }
 changeTheme();
+//keyboard support
+document.addEventListener("keydown", (event) => {
+  //numbers
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].forEach((key) => {
+    if (event.key == key) {
+      inputNumber(event.key);
+    }
+  });
+
+  //operator
+
+  ["+", "-", "*", "/"].forEach((key) => {
+    if (event.key == key) {
+      applyOperate(event.key);
+    }
+  });
+  //Enter
+
+  if (event.key == "Enter") {
+    equal.click();
+  }
+  //point
+  if (event.key == ".") {
+    if (countForPoint == 0) {
+      inputNumber(".");
+      countForPoint = 1;
+    }
+  }
+  //backspace
+  if (event.key == "Backspace") {
+    del.click();
+  }
+  //clear
+  if (event.key == "Escape" || event.key == "Delete") {
+    clear.click();
+  }
+});
