@@ -264,6 +264,7 @@ del.addEventListener("click", () => {
     operator = "";
     display.textContent = num1.join("");
     count = 0;
+    count1 = 0;
   }
 });
 
