@@ -3,7 +3,7 @@
 ### A calculator project which can solve fundamental math operations(add,subtract,divide & multiply)
 
 ![](image.png)
-
+[Live Demo](https://alam-afroz.github.io/Calculator/)
 **The Calculator** :
 
 - You can do addition, subtraction, multiplication and division
@@ -13,4 +13,3 @@
 
 - The main learning is to manage states using variables.
 - Fonts by google fonts.
-- The delete button still have some bugs which will be handled in future
