@@ -1,8 +1,8 @@
-# Calculator 
+# Calculator
 
 ### A calculator project which can solve fundamental math operations(add,subtract,divide & multiply)
 
-<img width="1280" height="720" alt="Slide1" src="https://github.com/user-attachments/assets/45305132-63c9-4320-8e79-6221047683d3" />
+![](image.png)
 
 **The Calculator** :
 
