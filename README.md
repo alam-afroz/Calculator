@@ -4,6 +4,7 @@
 
 ![](image.png)
 [Live Demo](https://alam-afroz.github.io/Calculator/)
+
 **The Calculator** :
 
 - You can do addition, subtraction, multiplication and division
